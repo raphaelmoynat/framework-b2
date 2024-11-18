@@ -1,0 +1,13 @@
+{
+    "name": "raphael/framework-b2",
+    "description": "framework in php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Core\\": "core/"
+        }
+    },
+    "require": {}
+}
