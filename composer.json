@@ -8,6 +8,5 @@
             "App\\": "src/",
             "Core\\": "core/"
         }
-    },
-    "require": {}
+    }
 }

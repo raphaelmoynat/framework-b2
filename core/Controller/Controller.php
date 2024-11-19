@@ -18,4 +18,9 @@ abstract class Controller
     {
         return $this->response->render($nameTemplate, $data);
     }
+
+    public function redirect($route): Response
+    {
+        return $this->response->redirect($route);
+    }
 }

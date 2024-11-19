@@ -9,5 +9,13 @@ class Response
         View::render($templateName, $data);
         return $this;
     }
+    public function redirect($route){
+        if(!$route){
+            header('Location: index.php');
+        }else{
+            header('Location: '.$route);
+        }
+        return $this;
+    }
 
 }

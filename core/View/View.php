@@ -6,9 +6,10 @@ class View
 {
     public static function render($templateName, array $data)
     {
-
+        extract($data);
 
         ob_start();
+
 
         require_once "../templates/{$templateName}.html.php";
 
