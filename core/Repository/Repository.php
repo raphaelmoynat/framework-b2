@@ -1,9 +1,12 @@
 <?php
 namespace Core\Repository;
 
+use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Core\Attributes\Table;
 use Core\Attributes\TargetEntity;
 use Core\Database\PDOMySQL;
+use Core\Http\Response;
 
 abstract class Repository
 {
@@ -41,11 +44,14 @@ abstract class Repository
     public function findAll():array
     {
 
-        $query = $this->pdo->query("SELECT * FROM $this->tableName");
-
-        $items = $query->fetchAll(\PDO::FETCH_CLASS,get_class(new $this->targetEntity()));
-
-        return $items;
+        try {
+            $query = $this->pdo->query("SELECT * FROM $this->tableName");
+            $items = $query->fetchAll(\PDO::FETCH_CLASS, get_class(new $this->targetEntity()));
+            return $items;
+        } catch (\PDOException $e) {
+            echo "Erreur lors de l'exécution de la requête: " . $e->getMessage();
+            return [];
+        }
     }
 
     public function find($id):object
@@ -74,7 +80,5 @@ abstract class Repository
         ]);
 
     }
-
-
 
 }
