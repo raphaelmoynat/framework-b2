@@ -1,16 +1,25 @@
 <?php
 
 namespace App\Controller;
-use Core\Http\Response;
+use Core\Attributes\Route;
+
+
 
 class HomeController extends \Core\Controller\Controller
 {
-    public function index():Response
+    #[Route(path: "/", name: "app_home")]
+    public function index()
+    {
+        echo "page home";
+
+
+    }
+
+    #[Route(path: "/home/index", name: "app_index")]
+    public function show()
     {
 
-        return $this->render("home/index",[
-
-        ]);
+        echo "page show";
 
 
 
