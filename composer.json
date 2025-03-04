@@ -8,5 +8,8 @@
             "App\\": "src/",
             "Core\\": "core/"
         }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
     }
 }
